@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Adivinha</string>
+    <string name="titulo">Digite numero de 0 a 10:</string>
+    <string name="centro">!</string>
+    <string name="botaoJogar">Jogar</string>
+    <string name="botao_frase">Gerar Frase</string>
+    <string name="frase">"?"</string>
+</resources>

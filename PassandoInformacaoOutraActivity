@@ -1,0 +1,25 @@
+//Activity atual
+Intent it = new Intent(ManActivity.this,DetalheActivity.class);
+it.putExtra("opcao",informacaoParaOutraActivity);
+startActivity(it);
+
+//outra activiti
+// para voltar a activity autal, utiliza o finish() ou o startActivity()
+//recuperar a informacao da outra activity
+
+Bundle extra = getIntent().getExtras();
+if(extra!=null) 
+   String opcaoEscolhida = extra.getString("opcao");
+
+if(opcao.equals("cara")){
+ //exibe imagem Cara	
+ imagem.setImageDrawable(ContextCompat.getDrawble(this,R.drawable.mode_cara));
+}else{
+ //exibe imagem coroa
+ imagem.setImageDrawable(ContextCompat.getDrawble(this,R.drawable.mode_coroa));
+}
+
+
+
+
+

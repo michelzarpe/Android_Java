@@ -1,0 +1,77 @@
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:background="#ffffff">
+    <!-- Linha 1 com uma coluna-->
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="175dp"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="9dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/logo" />
+    </TableRow>
+    <!-- Linha 2 com 2 colunas -->
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/imagemViewEmpresa"
+            android:layout_width="82dp"
+            android:layout_height="120dp"
+            android:background="@drawable/menu_empresa" />
+
+
+        <ImageView
+            android:id="@+id/imagemViewServico"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:background="@drawable/menu_servico" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/imagemViewContato"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:background="@drawable/menu_contato" />
+
+        <ImageView
+            android:id="@+id/imagemViewCliente"
+            android:layout_width="50dp"
+            android:layout_height="120dp"
+            android:background="@drawable/menu_cliente" />
+
+
+    </TableRow>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+
+
+        <EditText
+            android:id="@+id/idInputText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="" />
+
+
+    </TableRow>
+</TableLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IdadeDeDog</string>
+    <string name="botaoConverter">Converter</string>
+    <string name="texto_gasolina">Valor Gasolina</string>
+    <string name="texto_alcool">Valor alcool</string>
+
+</resources>
