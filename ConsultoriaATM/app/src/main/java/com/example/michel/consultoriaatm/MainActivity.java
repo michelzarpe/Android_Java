@@ -2,6 +2,7 @@ package com.example.michel.consultoriaatm;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ public class MainActivity extends Activity {
     private ImageView imagemViewCliente;
     private ImageView imagemViewServico;
     private ImageView imagemViewContato;
+    private ImageView imagemViewAtmConsultoria;
     private EditText idInputText;
 
     @Override
@@ -24,8 +26,16 @@ public class MainActivity extends Activity {
         imagemViewCliente = (ImageView) findViewById(R.id.imagemViewCliente);
         imagemViewServico = (ImageView) findViewById(R.id.imagemViewServico);
         imagemViewContato = (ImageView) findViewById(R.id.imagemViewContato);
+        imagemViewAtmConsultoria = (ImageView) findViewById(R.id.imagemAtmConsultoria);
         idInputText = (EditText) findViewById(R.id.idInputText);
 
+        imagemViewAtmConsultoria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,listaElementos.class);
+                startActivity(intent);
+            }
+        });
 
         imagemViewEmpresa.setOnClickListener(new View.OnClickListener() {
             @Override

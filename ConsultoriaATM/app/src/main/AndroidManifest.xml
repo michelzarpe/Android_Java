@@ -19,7 +19,8 @@
         <activity android:name=".EmpresaActivity" />
         <activity android:name=".ServicoActivity" />
         <activity android:name=".ContatoActivity" />
-        <activity android:name=".ClienteActivity"></activity>
+        <activity android:name=".ClienteActivity" />
+        <activity android:name=".listaElementos"></activity>
     </application>
 
 </manifest>
