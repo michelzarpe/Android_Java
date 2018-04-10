@@ -20,3 +20,130 @@ if(opcao.equals("cara")){
 }
 
 
+//Dialog
+private AlertDialog.Builder dialog;
+//adicionar botao com a acao
+dialog = new AlertDialog.Builder(MainActivity.this);
+dialog.setTitle("Titulo Dialog");
+dialog.setMessage("Mensagem");
+dialog.setCancelable(false);//não é possivel cancelar o dialog.setIcon(android.R.drawable.....);//icone
+
+dialog.setNegativeButton("Não",
+new DialogInterface.OnClickListener(){
+@Override
+public void onClick(DialogInterface dialog, int which){
+   Toast.makeText(MainActivity.this,"Precionado não",Toast.LENGTH_SHORT).show;
+  }
+});
+
+
+
+dialog.setPositiveButton("Sim",
+new DialogInterface.OnClickListener(){
+@Override
+public void onClick(DialogInterface dialog, int which){
+   Toast.makeText(MainActivity.this,"Precionado sim",Toast.LENGTH_SHORT).show;
+  }
+});
+dialog.create();
+dialog.show();
+-------------------------------------
+//cheqbox
+
+private CheckBox checkBoxCao;
+private CheckBox checkBoxGato;
+private CheckBox checkBoxPapagaio;
+private TextView textoExibicao;
+private Button botao;
+
+/*pegar os id na tela*/
+
+/*colocar a acao do botao*/
+/*pegar o que ta selecionado*/
+String itenSelecionado = checkBoxGato.GetText()+": "+checkboxDato.isChecked();
+--------------------------------------
+//seekBar, na propriedade max=10 (de 0 a 10)
+//recuperar o progresso do seekBar
+private SeekBar seekBar;
+//recuperar o id 
+seekbar.setOnSeekBarChangeLister(new SeekBar.OnSeekBarChangeListener(){
+//sera chamado onprogresschanged sempre que movimentar o Status 
+@Override
+public void onProgressChanged(SeekBar seekBar, int progress, boolean formUser){
+//
+}
+@Override
+public void onStartTrackingTouch(SeekBar seekBar){
+//usado quando precionado
+}
+@Override
+public void onStopTrackingTouch(SeekBar seekBar){
+// utilizado quando largar o botao do seekBar
+// pode-se utilizar para salvar o valor quando largar o seekBar
+}
+});
+---------------------------------------------------------
+//radio buttons
+//colocar um radioGroup
+//depois colocar os radiosbutton dentro do radiogroup
+private RadioGroup radioGroup;
+private RadioButton radioButtonEscolhido;
+/*pegar os id*/
+/*adicionar a acao ao botao*/
+int idRadioButon = radioGroup.getCheckedRadioButtonId();
+if(idRadioButon >0){
+	radioButtonEscolhido = (RadioBurron) findViewById(idRadioBurron);
+	radioButtonEscolhido.getText();
+}
+-----------------------------------------------------------
+//Toogle Button, dois estados no mesmo botao (padrao off/on mas da pra mudar)
+private ToogleButton toogleButtonId;
+//recuperar o id
+//implementar a acao setOnCheckedChangeListener( new OnCheckChangeListener(){
+@Override
+public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
+
+}
+});
+----------------------------------------------------------
+//executar media com android
+private MediaPlayer mediaPlayer;
+mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.musica);
+//colocar acao ao botao
+if(mediaPlayer.isPlaying()){
+  if(mediaPlayer!=null)
+     mediaPlayer.pause();
+}else{
+    if(mediaPlayer!=null)
+     mediaPlayer.start();
+}
+
+@Override
+  protected void onDestroy(){
+  if(mediaPlayer !=null && mediaPlayer.isPlaying()){
+   	mediaPlayer.stop();
+	mediaPlayer.release();
+	mediaPlayer = null;
+   }
+super.onDestroy();
+}
+
+-------------------------------------------------------------
+// quando tem muitos botoes em uma mesma alterar na classe da activity
+// depois do extends, um implement View.OnClickListener
+/*
+com isso depois de recuberar os ids dos botoes é so fazer o seguinte
+botao.setOnclickListener(this);
+Depois isso ir no metodo sobrescrito
+@override
+public void onClick(View v){
+	switch(v.getId()){
+	   case R.id.caoId:{mediaPlayer = MediaPlayer.create(MainActivity.this,R.cao); tocarSon();}
+	   case R.id.gatoId:{}		
+	}
+
+}
+
+
+*/
+
