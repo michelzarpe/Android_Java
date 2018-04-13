@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <EditText
+        android:id="@+id/textoID"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:background="@android:color/darker_gray"
+        android:freezesText="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:hint="Digite Tarefa"
+        android:textColor="#D3D3D3" />
+
+    <Button
+        android:id="@+id/botaoID"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Salvar" />
+
+    <ListView
+        android:id="@+id/listViewID"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray"
+        android:textColor="#D3D3D3" />
+
+</LinearLayout>
