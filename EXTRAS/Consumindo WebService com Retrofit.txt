@@ -1,0 +1,249 @@
+Comunicando-se com o mundo fora do nosso app.
+
+Nesse artigo vamos aprender um dos recursos mais importante no desenvolvimento de apps mobile e que qualquer desenvolver algum dia já se perguntou.
+
+“Se minha aplicação não pode se conectar a um banco de dados externo, como faço para ela se comunicar com meu sistema/ERP.”
+
+A resposta para essa pergunta é simples, precisamos usar um Web Service, mas o que necessariamente é um Web Service? Antes de qualquer coisa precisamos entender de uma vez o que é esse tal de Web Service e como utilizamos ele em nossos aplicativos.
+
+Web Service
+
+Como o próprio nome já sugere, ele é um serviço disponível na web, então conseguimos nos comunicar através do protocolo HTTP a partir de uma Uri e então podemos enviar requisições através do nosso aplicativo e receber o retorno dessa requisição, no caso os dados do banco de dados.
+
+Então quem fica responsável por criar esse serviço, comunicar com o banco de dados e retornar os dados para a requisição é o próprio sistema/ERP.
+
+Estrutura de uma requisição
+
+Antes de darmos continuidade, precisamos saber duas informações importantes sobre uma requisições.
+
+Uri
+
+Uma requisição precisa apontar para um local na internet, como por exemplo quando acessamos um determinado site, precisamos saber o seu endereço e o navegador faz o processo de fazer a requisição ao servidor e montar a página.
+
+A Uri de uma requisição também é um endereço na internet, neste exemplo vamos usar o serviço do GitHub para temos acesso aos repositórios de um determinado usuário.
+
+Ao acessar o endereço https://api.github.com/users/octocat/repos em qualquer navegador vamos ter o seguinte resultado.
+
+
+Conseguimos acessar os dados através do navegador, pois podemos fazer requisições HTTP com ele, mais é um pouco confuso de entender todas as informações juntas, concorda?
+
+Sabendo disso vamos instalar um plugin em nosso navegador para facilitar o entendimento dos dados e nos ajudar a validar nossos Web Services, então faça a instalação do seguinte plugin.
+
+Depois de finalizar a instalação basta executar e fazer o login com sua conta do google e verá uma tela igual a esse.
+
+
+Com esse aplicativo podemos simular requisições e acessar todas os dados de uma forma mais amigável, então preencha o campo “Enter request URL” e clique para enviar a requisição e veja o resultado na parte inferior.
+
+
+Agora conseguimos entender melhor todos aqueles códigos malucos, além disso o aplicativo nos mostra informações muitos importantes, como formato do arquivo de retorno, informações contida no cabeçalho da requisição, seções, entre outra, então como desenvolvedor eu recomendo fortemente que use o Postman para fazer todos os testes e validações quando forem criar seus próprios serviços.
+
+Verbos
+
+Podemos notar uma opção ao lado do campo do endereço da requisição, no caso ele vem por default a opção GET, mas existem outros tipos de verbos que precisamos conhecer antes de começarmos a desenvolver nosso aplicativo.
+
+
+O verbo em uma requisição tem uma função muito importante, ele especifica para o serviço o que deve ser entregue de voltar para a requisição, não precisamos entender todos os verbos agora, mas vamos ver um pouco sobre os principais verbos para começarmos a desenvolver nossos aplicativos
+
+GET
+
+Utilizado para buscar dados do banco de dados.
+
+POST
+
+Utilizado para inserir um informação no banco de dados.
+
+DELETE
+
+Utilizado para deletar um registro do banco de dados.
+
+PUT
+
+Utilizado para alterar/inserir um registro do banco de dados.
+Retrofit
+
+Uma informação muito importante que não foi dita ainda nesse artigo é que criar esse recurso em um aplicativo é um trabalho muito complicado e pode levar dias para ser desenvolvido, pensando nessa dificuldade temos uma Lib muito popular entre os desenvolvedores chamada Retrofit que vai nos auxiliar no desenvolvimento dessas requisições a um serviço na web.
+
+É importante ressaltar que existe uma lib mantida pela própria Google chamada Volley, mais com a popularização do Retrofit entre os desenvolvedores, muitos elegem o Retrofit sendo muito melhor que a própria lib mantida pela Google.
+
+O aplicativo Passo a passo
+
+Configuração do Retrofit.
+
+Criar a classe Service.
+
+Criar e mapear a classe model.
+
+Obter uma instância do Retrofit.
+
+Fazer requisição ao serviço.
+
+Forma assíncrona
+
+Forma síncrona.
+
+Configurações do Retrofit
+
+Para configurar o Retrofit é muito simples, precisamos apenas adicionar duas dependências no arquivo build.grandle em nível de projeto, como na imagem abaixo.
+https://udemy-images.s3.amazonaws.com/redactor/2017-04-12_16-28-58-deccb65f94eba508d0733611302253b4/img5.png
+
+
+Criando a classe Service.
+
+Esse é um dos principais tópicos quando estamos trabalhando com o Retrofit, pois é a classe que o retrofit vai interpretar e disponibilizar métodos que serão capazes de fazer as requisições e retornar nossos próprios objetos.
+
+Então crie uma interface  chamada GitHubServices, como o exemplo abaixo.
+
+public interface GitHubServices {
+   @GET("users/{user}/repos")
+   Call<List<Repo>> listRepos(@Path("user") String user);
+}
+Podemos observar algumas anotações para o método listRepos que precisamos entender antes de prosseguir com o desenvolvimento de nosso app.
+
+A anotação @GET específica ao Retrofit qual será o tipo da requisição a ser executada na chamada do método, essa anotação possui variações como @POST, @DELETE, @PUT. É importante observar que temos um parâmetro na anotação, esse parâmetro é responsável pode definir a Uri da requisição.
+
+A anotação @Path tem a função de mostrar para o Retrofit que um determinado parâmetro deve ser usado na Uri da requisição, por isso além de definir à anotação devemos colocar entre chaves a parte que será substituída no parâmetro da anotação @GET, lembrando de manter o mesmo nome, neste exemplo “user”.
+
+Criando a classe Model
+
+Essa parte é mais simples, temos que apenas mapear nossa classe com uma anotação para ser interpretada na hora de fazer o parse entra o nosso objeto com o arquivo JSON.
+
+Então crie uma classe com dois atributos e em seguida defina logo acima de cada atributo  a anotação @SerializedName e um nome como parâmetro.
+
+public class Repo {
+   @SerializedName("id")
+   int mId;
+   @SerializedName("name")
+   String mName;
+   public Repo(int id, String name ) {
+       this.mId = id;
+       this.mName = name;
+   }
+   public int getmId() {
+       return mId;
+   }
+   public void setmId(int mId) {
+       this.mId = mId;
+   }
+   public String getmName() {
+       return mName;
+   }
+   public void setmName(String mName) {
+       this.mName = mName;
+   }
+}
+Obter uma instância do Retrofit.
+
+Depois de seguir os passos anteriores estamos com quase tudo pronto para nosso aplicativo começar a se comunicar com serviços externos.
+
+Podemos voltar para nossa classe MainActivity e dentro do método OnCreate vamos criar uma instância do objeto Retrofit, na criação vamos fazer algumas configurações como por exemplo definir uma URL para onde nosso app irá apontar e um serviço para converter nossos próprios objetos em JSON e o processo contrários.
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+   super.onCreate(savedInstanceState);
+   setContentView(R.layout.activity_main);
+   Retrofit retrofit = new Retrofit.Builder()
+           .baseUrl("https://api.github.com")
+           .addConverterFactory(GsonConverterFactory.create())
+           .build();
+...
+}
+Como vamos precisar do método criado na classe GitHubServices, usamos o método create da classe Retrofit para conseguirmos uma instância dessa classe com os métodos prontos para ser usados.
+
+GitHubServices services = retrofit.create(GitHubServices.class); 
+
+INCRÍVEL!!!
+
+Sem escrever muitas linha de códigos, temos uma classe que faz todo processo de comunicação, validação e retorno de dados em objetos.
+
+E é por isso que essa biblioteca está cada vez mais sendo utilizado pelos desenvolvedores, para desenvolver um app com essas funcionalidades, até para desenvolvedores com mais conhecimentos seria preciso alguns dias ou semanas.
+
+Fazer requisição ao serviço
+
+Agora precisamos apenas fazer a chamada dos métodos que criamos dentro de nosso service, porém precisamos escolher se vamos fazer uma chamada síncrona ou assíncrona, como trabalhamos muito com threads no desenvolvimento mobile, devemos observar o contexto de nossa aplicativo e então decidir qual será a melhor opção.
+
+Forma Assíncrona
+
+Essa seria a forma mais simples, pois não precisamos nos preocupar em manipulação de threads, mas talvez não seria algo viável quando pensamos que precisamos da resposta desse método para definir algum outro comportamento.
+
+Para isso precisamos chamar o método listRepos para ser listados todos os repositórios de um determinado usuário do github.
+
+Call<List<Repo>> repos = services.listRepos("octocat"); 
+
+E por fim chamar o método enqueue para colocar o processo em uma fila de processos e executar a requisição, o método enqueue recebe uma interface de callback como parâmetro que sobrescrever dois método, um para caso a requisição tenha sido feita com sucesso e um para caso tenha ocorrido algum erro durante a requisição ao serviço.
+
+No método onResponse podemos pegar o corpo da requisição através do método body do parâmetro response. Note que não temos que converter nada para obtermos uma lista de nossa classe Repo.
+
+repos.enqueue(new Callback<List<Repo>>() {
+   @Override
+   public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
+           
+ // Pega a lista de repositorios no corpo da requisição.
+ List<Repo> reposResponse = response.body();
+     // Percorre a lista e exibe o nome de cada repositório.
+       for (Repo user : reposResponse){
+           Log.i("GitHubServices", user.getmName());
+       }
+   }
+   @Override
+   public void onFailure(Call<List<Repo>> call, Throwable t) {
+   }
+});
+Forma Síncrona
+
+Já nessa segunda opção precisamos trabalhar diretamente com threads, para não entrar muito sobre esse recurso e perder o foco da aula podemos utilizar uma classe da API do Android que trabalhar com processamento em segundo plano e nos disponibiliza métodos referênte ao seu ciclo de vida, assim podemos abrir um dialog antes de começar o processamento em segundo plano e ao finalizar podemos fechar esse dialog, muito bacana né.
+
+Portanto vamos utilizar a classe AsyncTasks que recebe três parâmetros, esses parâmetros devem ser tipo primitivos de dados, como String, Integer, Boolean entre outros, eles vão influenciar no fluxo dos método da classe AsyncTasks na seguinte sequência.
+
+AsyncTask<Parâmetros,Progresso,Resultado> 
+
+Agora criaremos uma classe anônima em nossa classe MainActivity, porém você pode ficar a vontade de criar essa classe em um arquivo separado.
+
+public class RetrofitAsyncTasks extends AsyncTask<Void, Void, List<Repo>>{
+   @Override
+   protected void onPreExecute() {
+       super.onPreExecute();
+      
+       // Antes de começar a execução da thread
+   }
+   @Override
+   protected List<Repo> doInBackground(Void... params) {
+     // buscar dados do webservice
+       return null;
+   }
+   @Override
+   protected void onPostExecute(List<Repo> repos) {
+       super.onPostExecute(repos);
+       // Depois da execução da thread
+   }
+}
+E agora precisamos implementar o mesmo código que já aprendemos, porém vamos usá-lo de uma forma diferente para que a requisição seja de forma síncrona, para isso adiciona o código abaixo dentro do método doInBackground de sua classe anônima.
+
+@Override
+protected Void doInBackground(String... params) {
+   Retrofit retrofit = new Retrofit.Builder()
+           .baseUrl("https://api.github.com")
+           .addConverterFactory(GsonConverterFactory.create())
+           .build();
+   GitHubServices services = retrofit.create(GitHubServices.class);
+   Call<List<Repo>> getRepositorios = services.listRepos( params[0] );
+   try {
+       List<Repo> repositorios = getRepositorios.execute().body();
+       for (Repo user : repositorios){
+           Log.i("GitHubServices", user.getmName());
+       }
+   } catch (IOException e) {
+       e.printStackTrace();
+   }
+   return null;
+}
+Com isso temos uma chamada síncrona dentro de uma thread executando em segundo plano, sem atrapalhar nossa UIThread, agora precisamos só fazer a chamada em nosso método onCreate.
+
+Observe que o método doInBackground possui um array como parâmetro, com isso podemos passar diversos valores no método execute e recuperado pelo seu índice, tornando assim cada vez mais dinâmico nossa chamada ao nosso serviço.
+
+RetrofitAsyncTasks tasks = new RetrofitAsyncTasks();
+tasks.execute("octocat");
+
+Espero que tenha gostado de mais esse artigo!
+
+Forte abraço.
+

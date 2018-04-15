@@ -1,0 +1,66 @@
+Em alguns casos é necessário colocar vários componentes dentro de um ScrollView, mas dentro de um ScrollView é interessante colocarmos apenas um componente filho.
+
+Segue passo a passo de como colocar vários componentes dentro de um ScrollView para que apareça corretamente a barra de Rolagem:
+
+1 - Adicione o scrollview ao seu RelativeLayout inicial (criado automaticamente pelo Android Studio)
+
+https://udemy-images.s3.amazonaws.com/redactor/2016-09-19_12-32-19-37ab15464d5184d85ee07e8fc50d7197/passo1.png
+
+2 - Como é interessante adicionar apenas um elemento dentro do ScrollView, coloque um LinearLayout (Horizontal ou vertical) ou ainda um RelativeLayout, conforme imagem abaixo:
+
+https://udemy-images.s3.amazonaws.com/redactor/2016-09-19_12-37-56-53b14fa428f289aecc68f0e6be5c1716/passo2.png
+
+3 - Arraste por exemplo um TextView para dentro do LinearLayout criado, poderá arrastar diretamente para o painel lateral direito (em vermelho)
+
+https://udemy-images.s3.amazonaws.com/redactor/2016-09-19_12-38-11-b9c7222724f9c2384e157beedf5cab37/passo3.png
+
+4 - O TextView ficará automaticamente dentro do LinearLayout, você poderá ir colocando vários elementos, pois como é utilizando um LinearLayout (Vertical), ficará um item abaixo do outro.
+
+https://udemy-images.s3.amazonaws.com/redactor/2016-09-19_12-39-34-003545926f8289143145ecff47cad3f8/passo4.png
+
+5 - Com isso você terá uma barra de rolagem conforme abaixo:
+O código para esse exemplo acima ficaria assim:
+
+https://udemy-images.s3.amazonaws.com/redactor/2016-09-19_12-41-34-a911cb31be37e7e41506da6fab0eb42f/passo5.png
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="projetoteste.cursoandroid.com.projetoteste.MainActivity">
+ 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" >
+ 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+ 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text" />
+ 
+            ...REPITA AQUI O TEXTVIEW VÁRIAS VEZES
+ 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text" />
+        </LinearLayout>
+    </ScrollView>
+ 
+</RelativeLayout>

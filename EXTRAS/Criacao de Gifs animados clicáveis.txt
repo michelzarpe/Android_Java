@@ -1,0 +1,32 @@
+Para a criação de botões ou Gifs animados é possível utilizando algumas bibliotecas que facilitam muito a utilização do recurso.
+
+Um exemplo é a: https://github.com/koral--/android-gif-drawable
+
+Para a utilização basta seguir os passos abaixo:
+
+1 - Coloque a biblioteca como dependência:
+
+compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.2'
+2 - No seu Layout, utilize o seguinte código XML
+
+<pl.droidsonroids.gif.GifImageButton
+    android:id="@+id/gifAnimado"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/giphy"/>
+3 - Na Activity, utilize
+
+private GifImageButton botao;
+botao = (GifImageButton) findViewById(R.id.gifAnimado);
+ 
+botao.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Log.i("BOTAO", "Clique do botão!!");
+    }
+});
+Dessa forma é possível criar GIFs animados com a possibilidade de serem clicados.
+
+Para mais informações é possível consultar a documentação oficial:
+
+https://github.com/koral--/android-gif-drawable

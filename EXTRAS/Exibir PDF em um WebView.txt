@@ -1,0 +1,47 @@
+Um dos recursos mais requiridos no Android é a capacidade de exibir PDF dentro de um WebView, mas o WebView não tem plugin para exibição do PDF. Para resolver esse problemas, temos algumas abordagens possíveis, uma delas é utilizar Intent para que o Android abra o arquivo diretamente com um Visualizador de PDF que o usuário tenha, conforme código abaixo:
+
+File arquivo = new File("arquivo.pdf");
+Intent intent = new Intent(Intent.ACTION_VIEW);
+intent.setDataAndType(Uri.fromFile(arquivo), "application/pdf");
+intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+startActivity(intent);
+Essa abordagem, acaba por transferir a responsabilidade para um app de terceiros, saindo então do seu App.
+
+Uma abordagem melhor e ao mesmo tempo um truque é carregar o PDF utilizando visualizador do Google Docs, conforme o código abaixo:
+
+1 - Colocar a permissão correta no arquivo AndroidManifest, para que seja possível utilizar o visualizador do Google Docs:
+
+<uses-permission android:name="android.permission.INTERNET" />
+2 - Utilizar o código abaixo para fazer as consultas:
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+ 
+        super.onCreate(savedInstanceState);
+        WebView webView=new WebView(MainActivity.this);
+        webView.getSettings().setJavaScriptEnabled(true);
+ 
+        /*Necessário sobescrever o método shouldOverrideUrlLoading retornando false
+        * pois por padrão o WebView irá passar para o Activity Manager escolher qual
+        * a melhor opção para abrir a URL, dessa forma o próprio WebView irá abrir a URL */
+        webView.setWebViewClient( new Callback() );
+        
+        /*Coloque aqui o LINK para o PDF, mantido um link apenas para teste*/
+        String pdfURL = "http://static.googleusercontent.com/media/research.google.com/pt-BR//pubs/archive/38356.pdf";
+        
+        /*Carrega a URL utilizando visualizador do Google Docs */
+        webView.loadUrl(
+                "http://docs.google.com/gview?embedded=true&url=" + pdfURL);
+ 
+        setContentView(webView);
+ 
+    }
+ 
+    private class Callback extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(
+                WebView view, String url) {
+            return(false);
+        }
+    }
+Dessa forma o PDF será renderizado dentro do próprio WebView.

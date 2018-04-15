@@ -1,0 +1,28 @@
+Existem algumas maneiras de gerar números aleatórios que não se repetem, uma delas é utilizando Set, conforme código abaixo:
+
+Set<Integer> numeros = new TreeSet<Integer>();
+Random rand = new Random();
+ 
+//Vamos sortear 20 números de 0 até 100 sem repetição
+while (numeros.size() < 20) {
+    numeros.add(rand.nextInt(101));
+}
+ 
+Log.i("NUMEROS","Números gerados: " + numeros);
+"Estruturas de dado do tipo “Set” são conhecidas por aceitar apenas valores únicos, ou seja, qualquer valor duplicado inserido em um “Set” será automaticamente excluído."
+
+É utilizado uma estrutura Set e é instanciado uma classe "TreeSet" que irá fazer com que os números aleatórios fiquem automaticamente ordenados, caso não queira a ordenação, poderá utilizar conforme abaixo:
+
+Set<Integer> numeros = new HashSet<Integer>();
+Random rand = new Random();
+ 
+//Vamos sortear 20 números de 0 até 100 sem repetição
+while (numeros.size() < 20) {
+    numeros.add(rand.nextInt(101));
+}
+ 
+//System.out.println("Números gerados: " + numeros);
+Log.i("NUMEROS","Números gerados: " + numeros);
+que utiliza a classe HashSet, não deixando então os itens ordenados. 
+
+Esse processo pode ser bem lento, pois supondo que seja sorteado 10 vezes o mesmo números, será feito 10 loops apenas para 1 número, pois o while só irá parar quando conseguir os 20 números sorteados.

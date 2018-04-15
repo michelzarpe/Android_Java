@@ -1,0 +1,24 @@
+Adicionando fontes externas em um projeto Android
+
+Todos nós sabemos da importância de ter uma app com um layout bonito, nesse artigo vou ensinar como podemos melhorar nossos layouts com o uso de fontes, sabemos que nossa IDE nos disponibiliza algumas opções de fontes por padrão, mais convenhamos não são nem um pouco atraentes, então nesse tutorial vamos ver como adicionar uma fonte externa em seu projeto e melhorar muito a sua exibição.
+
+Primeiro vamos precisar criar uma pasta de Assets em nosso projeto que por padrão não vem criada, para isso você precisa seguir os seguintes passos.
+
+Clique com o botão direito encima do pasta "app".
+
+Escolha a opção "New > Folder > Assets Folder" e clique em Finish.
+
+Depois de criar a pasta Assets você vai precisar criar uma pasta para guardar suas fontes.
+
+Clique com o botão direito encima do pasta "assets".
+
+Escolha a opção “New > New Folder” e a nomeia como "fonts".
+
+Agora mova sua fonte para sua pasta, como exemplo utilizei a fonte Work in Progress que pode ser baixada nesse link.
+https://www.dafont.com/work-in-progress.font
+
+E por fim precisamos apenas utilizar o método estático createFromAsset da classe Typeface para definir uma fonte que está na pasta Assets do nosso projeto para o componente TextView, como no exemplo abaixo.
+
+TextView txt_resultado = (TextView) findViewById(R.id.textoResultadoId);
+Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Nome_da_fonte.TTF");
+txt_resultado.setTypeface( font );

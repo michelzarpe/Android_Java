@@ -1,0 +1,14 @@
+Formatar datas é um recurso importante ao utilizar android, segue abaixo trecho de código comentado para essa função:
+
+//Recupera a data atual
+Date dataAtual = Calendar.getInstance().getTime();
+ 
+//Inicializa o SimpleDateFormat passando o formato no construtor
+DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+ 
+//utilizaca o objeto dateFormat com o método format para formatar a data atual criada
+String hoje = dateFormat.format(dataAtual);
+ 
+//exibe na tela o resultado
+Log.i("FORMATA_DATA", "Hoje é : " + hoje );
+Dessa maneira ficará muito mais fácil formatar datas em seus Apps.

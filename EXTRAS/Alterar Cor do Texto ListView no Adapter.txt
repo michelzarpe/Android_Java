@@ -1,0 +1,30 @@
+Olá Felipe, o texto realmente fica com a cor branca, não se preocupe, mais adiante, você irá aprender como criar listas customizadas e poderá você mesmo definir cor, cor de fundo, tamanho do texto. esses padrões do android, teremos pouca flexibilidade mesmo. Mas se você quiser mudar mesmo assim, segue trecho de código que mudará automaticamente as cores, lembrando que mais adiante, iremos aprender como fazer isso:
+
+itensAdaptador = new ArrayAdapter<String>(getApplicationContext(),
+        android.R.layout.simple_list_item_2,
+        android.R.id.text2,
+        itens){
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+ 
+        View view = super.getView(position, convertView, parent);
+        TextView text = (TextView) view.findViewById(android.R.id.text2);
+        text.setTextColor(Color.BLACK);
+        return view;
+ 
+    }
+};
+Perceba que esse trecho de código é novo, esse trecho basicamente sobrescreve o método que responsável por montar cada item da sua lista, alterando a cor:
+
+...itens){
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+ 
+        View view = super.getView(position, convertView, parent);
+        TextView text = (TextView) view.findViewById(android.R.id.text2);
+        text.setTextColor(Color.BLACK);
+        return view;
+ 
+    }
+};
+Poderá utilizar esse trecho de código que a cor ficará preta, não vou entrar em detalhes agora, pois faço isso mais adiante hehe, abraço!!!

@@ -1,0 +1,3 @@
+Link de referência para documentação no github sobre transições no Android:
+
+https://github.com/lgvalle/Material-Animations

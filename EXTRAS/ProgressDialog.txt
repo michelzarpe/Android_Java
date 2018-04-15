@@ -1,0 +1,48 @@
+Código para exibir uma Progress Dialog:
+
+import android.app.ProgressDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+ 
+public class MainActivity extends AppCompatActivity {
+ 
+    private Button botao;
+    private ProgressDialog progressDialog;
+ 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+ 
+        botao = (Button) findViewById(R.id.button_abrir);
+ 
+        //Configura barra de progresso passando o contexto
+        progressDialog = new ProgressDialog( MainActivity.this );
+ 
+        //Configura o título da progress dialog
+        progressDialog.setTitle("Titulo da barra");
+ 
+        //configura a mensagem de que está sendo feito o carregamento
+        progressDialog.setMessage("configura a mensagem de carregando os conteúdos!!!");
+ 
+        //configura se a progressDialog pode ser cancelada pelo usuário
+        progressDialog.setCancelable(true);
+ 
+        //associa evento de clique para abrir a barra de progresso
+        botao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+ 
+                //Exibe a barra no momento que é iniciado o processo
+                progressDialog.show();
+ 
+                //esconde a progress bar quando o processo é finalizado
+                //progressDialog.dismiss();
+ 
+            }
+        });
+ 
+    }
+}

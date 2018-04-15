@@ -1,0 +1,22 @@
+Context
+É um ponto de acesso para informações globais sobre um ambiente de aplicativo. Trata-se de uma classe abstrata cuja implementação é fornecida pelo sistema Android. Ela permite acesso a recursos e classes específicas de aplicativo, bem como chamadas para operações em nível de aplicativo como iniciar activities, enviar ou receber intents por broadcast, etc.
+Em outras palavras, Context é a maneira fornecida pelo sistema para seu aplicativo acessar determinados recursos (como o recurso de iniciar uma activity, iniciar ou parar um service, enviar umbroadcast, abrir um banco de dados ou arquivo de preferências, etc.) ou classes (como os diversos Managers que o sistema oferece: gerenciador de Telefonia, de Alarme, de Sensores, de Áudio, de Notificações, de Energia, de USB, etc). Esses recursos e classes têm a particularidade de serem globais no nível do aplicativo, isto é, são de nível de aplicativo. Não deixa de ser um god object como diz a Square - e, de fato, sem uma instância de Context você não faz muita coisa em um aplicativo Android.
+
+Application
+Classe-base para aqueles que precisam preservar estado global de aplicativo. Você pode fornecer sua própria implementação (normalmente não há necessidade, e singletons estáticos podem fornecer a mesma funcionalidade de uma maneira mais modular).
+Activity
+Uma activity é uma coisa única e focada que o usuário pode fazer.
+Service
+É um componente de aplicativo que pode tanto representar o desejo de um aplicativo de executar um operação de maior duração ao mesmo tempo em que evita interagir com o usuário ou fornecer funcionalidades para outros aplicativos usarem.
+
+
+Application, Activity e Service são concretizações de Context, isto é, classes concretas que implementam um Context do Android. Quando você estende essas classes em seu código, você tem acesso aos serviços de nível de aplicativo fornecidos pelo Context herdado por essas classes. Além disso, tem acesso a recursos específicos de cada subclasse; por exemplo, a Activity ativa no momento pode ser fechada através do método finish() e pode executar código no thread principal de maneira simples através do método runOnUiThread(). Activities, Services e Applications têm cada um o seu ciclo de vida particular. E nem sempre os contextos são intercambiáveis; por exemplo, se você tentar exibir um Dialog passando para ele um contexto Application, isto causará um erro devido ao Android esperar que seja passada uma Activity(este problema em especial se trata mais de uma idiossincrasia do Android, que deveria esperar receber logo uma Activity).
+
+Diferenças entre os métodos
+View.getContext(): Retorna o contexto no qual a view está sendo exibida. Geralmente a Activity ativa no momento.
+
+Activity.getApplicationContext(): Retorna o contexto do aplicativo inteiro (o processo dentro do qual todas as Activities estão sendo executadas). Use este no lugar do contexto da Activity ativa no momento se você estiver precisando de um contexto vinculado ao ciclo de vida do aplicativo inteiro.
+
+ContextWrapper.getBaseContext(): É um método da classe ContextWrapper. E ContextWrapper é "uma implementação proxy de Context que simplesmente delega todas as suas chamadas para um outro Context. Pode ser estendida para modificar comportamentos sem alterar o Context original."
+
+Fragment.getActivity(): Retorna a Activity à qual está anexado este fragmento. Um fragmento não possui Context por si só; porém, quando se encontra ligado (attached ou added) a uma Activity tem acesso ao contexto dessa Activity, ou então se guarda uma instância de Application tem acesso a essa instância mesmo estando desligado da Activity.

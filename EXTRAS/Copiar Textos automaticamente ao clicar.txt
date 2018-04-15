@@ -1,0 +1,36 @@
+Como copiar textos automaticamente ao clicar
+Seção 23, aula 326
+Poder copiar textos automaticamente ao clicar é um recurso muito interessante, para fazer isso, basta seguir os passos abaixo:
+
+1 - Criar método que faz a cópia para diferentes versões do Android:
+
+private void copiar(Context context,String text) {
+    if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB) {
+        android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        clipboard.setText(text);
+    } else {
+        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        android.content.ClipData clip = android.content.ClipData.newPlainText("Texto copiado: ", text);
+        clipboard.setPrimaryClip(clip);
+    }
+    Toast.makeText(context, "Texto copiado", Toast.LENGTH_LONG).show();
+}
+2 - adicionar o evento de clique no seu TextView, utilizando o método criado acima:
+
+meuTextView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        copiar( getApplicationContext(), meuTextView.getText().toString() );
+    }
+});
+Dessa forma, você poderá utilizar o recurso de copiar em todos os seus próximos Apps, quando for necessário.
+
+3 - Você pode ainda utilizar uma propriedade, para permitir que o usuário possa selecionar e então copiar os textos:
+
+Para permitir que o usuário faça a cópia, basta colocar a propriedade
+
+android:textIsSelectable="true"
+no arquivo "seu_arquivo.xml" dentro do textview, ficando assim:
+
+<TextView ... android:textIsSelectable="true" />
+Dessa maneira o usuário, poderá selecionar o texto e ele mesmo copiar.

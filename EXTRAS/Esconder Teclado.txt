@@ -1,0 +1,9 @@
+As vezes é necessário esconder o teclado ao clicar em um botão, uma das maneira se fazer isso é com o código abaixo:
+
+public void esconderTeclado(Activity activity) {
+    InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+    inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+}
+Para utilizar o método, basta passar a Activity que o método está sendo chamado:
+
+esconderTeclado( MainActivity.this );

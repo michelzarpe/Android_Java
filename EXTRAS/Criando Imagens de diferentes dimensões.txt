@@ -1,0 +1,28 @@
+Antes de começar esse mini tutorial, é importante que você tenha feito a aula: "Instalação do Plugin Drawable Importer" na seção 18 - WhatsApp (Clone).
+
+Para que o seu App possa apresentar aos usuários imagens em diversos tamanhos de acordo com o dispositivo, um celular pequeno, um celular com uma ótima resolução, um Tablet com altíssima resolução. Todos esses dispositivos irão requerer imagens de tamanhos adequados para cada um deles, e uma maneira simples de criar essas imagens é utilizando o mini tutorial abaixo:
+
+1 - Clique com o botão direito em cima da pasta "Drawable" e escolha a opção  New -> "Batch Drawable Importer"
+
+https://udemy-images.s3.amazonaws.com/redactor/2016-08-04_14-55-31-3612d5715c3b629a087461824e8ed841/passo1.png
+
+2 - Na tela que irá abrir escolha o botão "+" em seguida procure a imagem com tamanho acima de 1500 pixels (imagem com qualidade alta, pode ser até maior), pois será ajustada para os tamanhos padrões utilizando pelo android.
+
+https://udemy-images.s3.amazonaws.com/redactor/2016-08-04_14-57-01-d8249224225d2035c9c3e3ca783a8098/passo2.png
+
+3 - Na próxima tela, escolha os tamanhos que você pretende alcançar com o seu App, o tamanho padrão seria como na imagem abaixo:
+
+https://udemy-images.s3.amazonaws.com/redactor/2016-08-04_14-59-01-089592635ef2b00941764de98f9b2a2a/passo3.png
+
+4 - Agora você tem as imagens para os diferentes tamanhos de dispositivos.
+
+https://udemy-images.s3.amazonaws.com/redactor/2016-08-04_14-59-47-fdfd60addc7a8d4c5b00ca33f4d5597f/passo4.png
+
+5 - Dessa maneira ao utilizar a imagem e executar o App em diferentes dispositivos, as imagens corretas são carregadas para cada dispositivo automaticamente pelo Android.
+
+
+https://udemy-images.s3.amazonaws.com/redactor/2016-08-04_15-12-48-98f2ebc46980ebfaebf8403347c13374/passo5.png
+
+Link da documentação oficial:
+
+https://d

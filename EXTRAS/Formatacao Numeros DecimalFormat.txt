@@ -1,0 +1,37 @@
+Para efetuar formatações de números decimais, segue trecho de código:
+
+package aplicacoes.cursoandroid.com.testeaplicacoes2;//Remova essa linha, irá utilizar o seu pacote
+ 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+ 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+ 
+public class MainActivity extends AppCompatActivity {
+ 
+    private TextView texto;//TextView para exibir número formatado
+ 
+    //Utiliza o objeto Locale para recuperar as formatações locais do Brasil
+    private static final Locale LOCAL = new Locale("pt","BR");
+ 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+ 
+        texto = (TextView) findViewById(R.id.texto);
+        
+        //Aplica máscara de formatação para numeros decimais e passa o local com parâmetro
+        DecimalFormat df = new DecimalFormat("#,##0.00", new DecimalFormatSymbols(LOCAL));
+        String tx = df.format(120000.3456);
+ 
+        texto.setText(tx);//exibe na caixa de texto
+ 
+        Log.i("resultado-'", tx + "'" );
+ 
+    }
+}
