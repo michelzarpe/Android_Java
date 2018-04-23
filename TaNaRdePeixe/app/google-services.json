@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1013976122122",
+    "firebase_url": "https://tanaredepeixe.firebaseio.com",
+    "project_id": "tanaredepeixe",
+    "storage_bucket": "tanaredepeixe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013976122122:android:55cbc9598de9a00a",
+        "android_client_info": {
+          "package_name": "tanaredepeixe.com.tanardepeixe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1013976122122-h4cn6d8qte4g7n7cnj8snqihm658dqgf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tanaredepeixe.com.tanardepeixe",
+            "certificate_hash": "dc75f44ce84e5c00ad24832f05bd9b1aee698d4f"
+          }
+        },
+        {
+          "client_id": "1013976122122-trf51jqv1cjg5h752vsbb3dnfd1p4cuf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZqj7Nn0rZxYjs26quV-N2XKT62ixJv-w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1013976122122-trf51jqv1cjg5h752vsbb3dnfd1p4cuf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
