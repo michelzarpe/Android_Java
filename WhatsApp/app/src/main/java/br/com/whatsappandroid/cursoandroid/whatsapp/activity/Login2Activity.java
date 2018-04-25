@@ -29,6 +29,10 @@ public class Login2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
+
+        /* caso esteja logado ja entra direto para pagina principal*/
+        verificarUsuarioLogado();
+
         edit_loginEmail = (EditText) findViewById(R.id.edit_loginEmail);
         edit_loginSenha = (EditText) findViewById(R.id.edit_loginSenha);
         button_loginLogar = (Button) findViewById(R.id.button_loginLogar);
@@ -44,6 +48,14 @@ public class Login2Activity extends AppCompatActivity {
         });
 
 
+    }
+
+
+    private void verificarUsuarioLogado(){
+        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        if(autenticacao.getCurrentUser()!=null){
+            abrirTelaPrincipal();
+        }
     }
 
     private void validarLogin(){
