@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,104 +6,90 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primaryColor"
-        tools:context=".activity.LoginActivity">
+        tools:context=".activity.CadastroUsuarioActivity">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView4"
             android:layout_width="@dimen/largura_logo"
             android:layout_height="@dimen/altura_logo"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="68dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/usuario" />
 
         <EditText
-            android:id="@+id/editTextNome"
-            android:layout_width="351dp"
+            android:id="@+id/edit_cadastroNome"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="Digite seu nome"
             android:inputType="textPersonName"
-            android:textColor="@color/primaryTextColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
         <EditText
-            android:id="@+id/editTextDDI"
-            android:layout_width="43dp"
-            android:layout_height="46dp"
+            android:id="@+id/edit_cadastroEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:ems="10"
-            android:hint="+55"
-            android:inputType="number"
-            android:textColor="@color/primaryTextColor"
-            app:layout_constraintBaseline_toBaselineOf="@+id/editTextDDD"
-            app:layout_constraintEnd_toStartOf="@+id/editTextDDD"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/editTextDDD"
-            android:layout_width="41dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint=" 11"
-            android:inputType="number"
-            android:textColor="@color/primaryTextColor"
-            app:layout_constraintEnd_toStartOf="@+id/editTextTelefone"
-            app:layout_constraintStart_toEndOf="@+id/editTextDDI"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNome" />
+            android:hint="Digite Seu e-mail"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_cadastroNome" />
 
         <EditText
-            android:id="@+id/editTextTelefone"
-            android:layout_width="244dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:ems="10"
-            android:hint="9 9999-9999"
-            android:inputType="number"
-            android:textColor="@color/primaryTextColor"
-            app:layout_constraintBaseline_toBaselineOf="@+id/editTextDDD"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editTextDDD" />
-
-        <Button
-            android:id="@+id/buttonCatastrar"
-            android:layout_width="351dp"
+            android:id="@+id/edit_cadastroSenha"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Digite uma senha"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_cadastroEmail" />
+
+        <Button
+            android:id="@+id/button_cadastrarUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:background="@color/primaryDarkColor"
             android:text="@string/button_cadastrar"
             android:textColor="@color/primaryTextColor"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.529"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTelefone" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_cadastroSenha" />
+
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

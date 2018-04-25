@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryColor"
+    android:foregroundGravity="center_vertical|center_horizontal"
     tools:context=".activity.ValidadorActivity">
 
     <ImageView
@@ -48,13 +49,13 @@
         android:layout_marginTop="8dp"
         android:text="@string/text_validacao_codigo_inserir"
         android:textColor="@color/primaryTextColor"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonValidar"
         android:layout_width="348dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -66,10 +67,10 @@
         android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextValidador" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/editTextValidador"
         android:layout_width="178dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
