@@ -1,4 +1,4 @@
-package br.com.whatsappandroid.cursoandroid.whatsapp.activity;
+package br.com.whatsappandroid.cursoandroid.whatsapp.activity.antiga;
 
 import android.Manifest;
 import android.content.Context;

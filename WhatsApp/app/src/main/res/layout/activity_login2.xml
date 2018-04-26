@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:background="@color/primaryColor"
         android:foregroundGravity="center_vertical|center_horizontal"
-        tools:context=".activity.Login2Activity">
+        tools:context=".activity.atual.Login2Activity">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -70,9 +70,8 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
-            android:background="@color/primaryDarkColor"
             android:text="@string/botao_logar"
-            android:textColor="@color/primaryTextColor"
+            android:theme="@style/botaoPadrao"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

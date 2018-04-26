@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/primaryColor"
     android:foregroundGravity="center_vertical|center_horizontal"
-    tools:context=".activity.ValidadorActivity">
+    tools:context=".activity.antiga.ValidadorActivity">
 
     <ImageView
         android:id="@+id/imageView2"

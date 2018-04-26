@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.atual.MainActivity">
+
+    <include android:id="@+id/toolbar_activity_main"
+        layout="@layout/toolbar"/>
 
 </android.support.constraint.ConstraintLayout>

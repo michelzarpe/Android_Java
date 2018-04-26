@@ -5,4 +5,9 @@
     <string name="text_validacao_codigo_inserir">Você recebeu um SMS para validação do seu número, digite o código de validação abaixo:</string>
     <string name="button_validacao">Validar</string>
     <string name="botao_logar">Logar</string>
+    <string name="item_configuracao">Configuração</string>
+    <string name="item_sair">Sair</string>
+    <string name="item_adicionar">Add</string>
+    <string name="item_pesquisar">Psq</string>
+
 </resources>

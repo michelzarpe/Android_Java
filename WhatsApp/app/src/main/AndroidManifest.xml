@@ -13,17 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeWhats">
-        <activity android:name=".activity.Login2Activity">
+        <activity android:name=".activity.atual.Login2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.ValidadorActivity" />
-        <activity android:name=".activity.CadastroUsuarioActivity" />
-        <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.atual.MainActivity" />
+        <activity android:name=".activity.antiga.ValidadorActivity" />
+        <activity android:name=".activity.atual.CadastroUsuarioActivity" />
+        <activity android:name=".activity.antiga.LoginActivity"></activity>
     </application>
 
 </manifest>

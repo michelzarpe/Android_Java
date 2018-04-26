@@ -1,4 +1,4 @@
-package br.com.whatsappandroid.cursoandroid.whatsapp.activity;
+package br.com.whatsappandroid.cursoandroid.whatsapp.activity.atual;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;

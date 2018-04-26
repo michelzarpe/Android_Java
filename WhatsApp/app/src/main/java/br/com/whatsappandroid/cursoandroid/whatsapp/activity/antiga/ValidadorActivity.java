@@ -1,4 +1,4 @@
-package br.com.whatsappandroid.cursoandroid.whatsapp.activity;
+package br.com.whatsappandroid.cursoandroid.whatsapp.activity.antiga;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
