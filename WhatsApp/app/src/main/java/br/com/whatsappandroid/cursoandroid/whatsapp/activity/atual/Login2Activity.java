@@ -17,6 +17,9 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import br.com.whatsappandroid.cursoandroid.whatsapp.R;
 import br.com.whatsappandroid.cursoandroid.whatsapp.config.ConfiguracaoFirebase;
+import br.com.whatsappandroid.cursoandroid.whatsapp.controller.Base64Custom;
+import br.com.whatsappandroid.cursoandroid.whatsapp.controller.PreferencesUsuario;
+import br.com.whatsappandroid.cursoandroid.whatsapp.controller.Preferencias;
 import br.com.whatsappandroid.cursoandroid.whatsapp.model.Usuario;
 
 public class Login2Activity extends AppCompatActivity {
@@ -47,9 +50,7 @@ public class Login2Activity extends AppCompatActivity {
             }
         });
 
-
     }
-
 
     private void verificarUsuarioLogado(){
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
@@ -64,6 +65,8 @@ public class Login2Activity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    PreferencesUsuario preferencesUsuario = new PreferencesUsuario(Login2Activity.this);
+                    preferencesUsuario.salvarDados(Base64Custom.codificandoBase64(usuario.getEmail()));
                     abrirTelaPrincipal();
                     Toast.makeText(Login2Activity.this,"Login realizado com sucesso",Toast.LENGTH_SHORT).show();
                 }else {

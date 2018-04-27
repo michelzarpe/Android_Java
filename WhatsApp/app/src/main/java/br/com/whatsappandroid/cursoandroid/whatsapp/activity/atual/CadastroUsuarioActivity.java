@@ -1,8 +1,10 @@
 package br.com.whatsappandroid.cursoandroid.whatsapp.activity.atual;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 
 import br.com.whatsappandroid.cursoandroid.whatsapp.R;
 import br.com.whatsappandroid.cursoandroid.whatsapp.config.ConfiguracaoFirebase;
+import br.com.whatsappandroid.cursoandroid.whatsapp.controller.Base64Custom;
+import br.com.whatsappandroid.cursoandroid.whatsapp.controller.PreferencesUsuario;
 import br.com.whatsappandroid.cursoandroid.whatsapp.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
@@ -59,29 +63,30 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) { /*verifica se o cadastro foi feito com sucesso*/
-                    Toast.makeText(CadastroUsuarioActivity.this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
-                    usuario.setId(task.getResult().getUser().getUid());
+
+                    usuario.setBase64ID(Base64Custom.codificandoBase64(usuario.getEmail()));
+                    usuario.setId(usuario.getBase64ID());
+
                     salvarUsuariosFireBase();
-                    /*automaticamente ele tem que ficar logado*/
-                    /*apenas seria preciso enviar ele para a pagina inical do aplicativo podendo utilizar o mesmo*/
-                    /*mas vamos fazer com que a pessoa llogue*/
-                    autenticacao.signOut();
-                    finish();/*encerra ativity voltando pra anterior*/
+
+                    PreferencesUsuario preferencesUsuario = new PreferencesUsuario(CadastroUsuarioActivity.this);
+                    preferencesUsuario.salvarDados(usuario.getBase64ID());
+
+                    abrirLoginUsuario();
 
                 } else {
                     String exception = "";
-
-                    try{
+                    try {
                         throw task.getException();
                     } catch (FirebaseAuthWeakPasswordException e) {
-                        exception ="Digite uma senha contendo letras e numeros, no minimo 8";
-                    }catch (FirebaseAuthInvalidCredentialsException e) {
-                        exception ="E-mail digitado é invalido";
-                    }catch (FirebaseAuthUserCollisionException e) {
-                        exception ="E-mail já está em uso";
-                    }catch (FirebaseAuthInvalidUserException e) {
-                        exception ="Autenticação não é mais valida, realize o login novamente";
-                    }catch (Exception e) {
+                        exception = "Digite uma senha contendo letras e numeros, no minimo 8";
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
+                        exception = "E-mail digitado é invalido";
+                    } catch (FirebaseAuthUserCollisionException e) {
+                        exception = "E-mail já está em uso";
+                    } catch (FirebaseAuthInvalidUserException e) {
+                        exception = "Autenticação não é mais valida, realize o login novamente";
+                    } catch (Exception e) {
                         exception = "Erro ao cadastrar o usuário: ";
                         e.printStackTrace();
                     }
@@ -93,9 +98,16 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
 
     }
 
-    private void salvarUsuariosFireBase(){
+    private void salvarUsuariosFireBase() {
         referenciaFireBase = ConfiguracaoFirebase.getFirebase();
         referenciaFireBase.child("usuario").child(usuario.getId()).setValue(usuario);
     }
+
+    private void abrirLoginUsuario() {
+        Intent intent = new Intent(CadastroUsuarioActivity.this, Login2Activity.class);
+        startActivity(intent);
+        finish();
+    }
+
 
 }
