@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,8 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 
 import br.com.whatsappandroid.cursoandroid.whatsapp.R;
 import br.com.whatsappandroid.cursoandroid.whatsapp.config.ConfiguracaoFirebase;
-import br.com.whatsappandroid.cursoandroid.whatsapp.controller.Base64Custom;
-import br.com.whatsappandroid.cursoandroid.whatsapp.controller.PreferencesUsuario;
+import br.com.whatsappandroid.cursoandroid.whatsapp.helper.Base64Custom;
+import br.com.whatsappandroid.cursoandroid.whatsapp.helper.PreferencesUsuario;
 import br.com.whatsappandroid.cursoandroid.whatsapp.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {

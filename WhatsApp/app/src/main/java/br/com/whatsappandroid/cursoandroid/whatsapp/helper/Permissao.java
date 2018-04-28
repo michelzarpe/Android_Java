@@ -1,4 +1,4 @@
-package br.com.whatsappandroid.cursoandroid.whatsapp.controller;
+package br.com.whatsappandroid.cursoandroid.whatsapp.helper;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;

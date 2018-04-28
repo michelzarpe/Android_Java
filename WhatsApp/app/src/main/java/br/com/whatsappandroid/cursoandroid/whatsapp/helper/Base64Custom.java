@@ -1,8 +1,6 @@
-package br.com.whatsappandroid.cursoandroid.whatsapp.controller;
+package br.com.whatsappandroid.cursoandroid.whatsapp.helper;
 
-import android.provider.ContactsContract;
 import android.util.Base64;
-import android.util.Log;
 
 public class Base64Custom {
 

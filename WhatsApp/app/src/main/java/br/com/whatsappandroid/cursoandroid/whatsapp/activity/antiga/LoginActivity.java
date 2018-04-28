@@ -21,8 +21,8 @@ import java.util.HashMap;
 import java.util.Random;
 
 import br.com.whatsappandroid.cursoandroid.whatsapp.R;
-import br.com.whatsappandroid.cursoandroid.whatsapp.controller.Permissao;
-import br.com.whatsappandroid.cursoandroid.whatsapp.controller.Preferencias;
+import br.com.whatsappandroid.cursoandroid.whatsapp.helper.Permissao;
+import br.com.whatsappandroid.cursoandroid.whatsapp.helper.Preferencias;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText editTextNome;

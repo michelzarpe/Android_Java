@@ -3,7 +3,6 @@ package br.com.whatsappandroid.cursoandroid.whatsapp.activity.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +16,16 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import br.com.whatsappandroid.cursoandroid.whatsapp.Adapter.AdapterPersonalidado;
 import br.com.whatsappandroid.cursoandroid.whatsapp.R;
 import br.com.whatsappandroid.cursoandroid.whatsapp.config.ConfiguracaoFirebase;
-import br.com.whatsappandroid.cursoandroid.whatsapp.controller.PreferencesUsuario;
+import br.com.whatsappandroid.cursoandroid.whatsapp.helper.PreferencesUsuario;
 import br.com.whatsappandroid.cursoandroid.whatsapp.model.Contato;
 
 public class ContatosFragment extends Fragment {
     private ListView listView_Contatos;
-    private ArrayAdapter arrayAdapter;
-    private ArrayList<String> contatos;
+    private AdapterPersonalidado arrayAdapter;
+    private ArrayList<Contato> contatos;
     private DatabaseReference databaseReference;
     private ValueEventListener valueEventListener;
 
@@ -55,8 +55,10 @@ public class ContatosFragment extends Fragment {
         listView_Contatos = (ListView) view.findViewById(R.id.listView_Contatos);
 
         //getActivity, ele pega a activity que vai ser utilizada para passar ao adapter
-        // arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_expandable_list_item_1,contatos);
-        arrayAdapter = new ArrayAdapter(getActivity(), R.layout.lista_contato, contatos);
+        //arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_expandable_list_item_1,contatos);
+         //arrayAdapter = new ArrayAdapter(getActivity(), R.layout.lista_contato, contatos);
+
+        arrayAdapter = new AdapterPersonalidado(contatos,getActivity());
         listView_Contatos.setAdapter(arrayAdapter);
 
         /*recuperar os contatos direto do fireBase*/
@@ -76,7 +78,7 @@ public class ContatosFragment extends Fragment {
 
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     Contato c = dados.getValue(Contato.class);
-                    contatos.add(c.getNome());
+                    contatos.add(c);
                 }
                 arrayAdapter.notifyDataSetChanged();
             }

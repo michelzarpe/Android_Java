@@ -1,9 +1,7 @@
-package br.com.whatsappandroid.cursoandroid.whatsapp.controller;
+package br.com.whatsappandroid.cursoandroid.whatsapp.helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
-import java.util.HashMap;
 
 public class PreferencesUsuario {
 

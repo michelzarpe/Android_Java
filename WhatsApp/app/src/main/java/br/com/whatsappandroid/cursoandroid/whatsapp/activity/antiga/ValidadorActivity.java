@@ -13,7 +13,7 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import java.util.HashMap;
 
 import br.com.whatsappandroid.cursoandroid.whatsapp.R;
-import br.com.whatsappandroid.cursoandroid.whatsapp.controller.Preferencias;
+import br.com.whatsappandroid.cursoandroid.whatsapp.helper.Preferencias;
 
 public class ValidadorActivity extends AppCompatActivity {
 

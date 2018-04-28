@@ -17,9 +17,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import br.com.whatsappandroid.cursoandroid.whatsapp.R;
 import br.com.whatsappandroid.cursoandroid.whatsapp.config.ConfiguracaoFirebase;
-import br.com.whatsappandroid.cursoandroid.whatsapp.controller.Base64Custom;
-import br.com.whatsappandroid.cursoandroid.whatsapp.controller.PreferencesUsuario;
-import br.com.whatsappandroid.cursoandroid.whatsapp.controller.Preferencias;
+import br.com.whatsappandroid.cursoandroid.whatsapp.helper.Base64Custom;
+import br.com.whatsappandroid.cursoandroid.whatsapp.helper.PreferencesUsuario;
 import br.com.whatsappandroid.cursoandroid.whatsapp.model.Usuario;
 
 public class Login2Activity extends AppCompatActivity {
