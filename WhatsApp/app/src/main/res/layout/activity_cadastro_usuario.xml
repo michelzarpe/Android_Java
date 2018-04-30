@@ -10,8 +10,9 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primaryColor"
-        tools:context=".activity.atual.CadastroUsuarioActivity">
+        android:background="@drawable/fundo_degrade"
+        tools:context=".activity.atual.CadastroUsuarioActivity"
+        android:layout_gravity="center_vertical|center_horizontal">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -38,6 +39,8 @@
             android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="Digite seu nome"
+            android:background="@drawable/fundo_caixa_texto"
+            android:padding="10dp"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +57,8 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Digite Seu e-mail"
+            android:background="@drawable/fundo_caixa_texto"
+            android:padding="10dp"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +75,8 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Digite uma senha"
+            android:background="@drawable/fundo_caixa_texto"
+            android:padding="10dp"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -86,9 +93,9 @@
             android:layout_marginTop="8dp"
             android:text="@string/button_cadastrar"
             android:theme="@style/botaoPadrao"
+            android:background="@drawable/fundo_botao"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_cadastroSenha" />
-
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

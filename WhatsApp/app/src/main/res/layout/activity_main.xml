@@ -14,7 +14,7 @@
     <!-- Criando as Tabs -->
    <br.com.whatsappandroid.cursoandroid.whatsapp.helper.SlidingTabLayout
        android:id="@+id/tab_layout"
-       android:background="@color/primaryDarkColor"
+       android:background="@drawable/fundo_degrade"
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
    </br.com.whatsappandroid.cursoandroid.whatsapp.helper.SlidingTabLayout>

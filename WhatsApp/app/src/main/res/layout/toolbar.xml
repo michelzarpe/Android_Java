@@ -5,7 +5,7 @@
     android:id="@+id/toolbar_principal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/primaryDarkColor"
+    android:background="@drawable/fundo_degrade"
     app:popupTheme="@style/Theme.AppCompat.Light"
     />
    <!-- android:elevation="5dp" -->
