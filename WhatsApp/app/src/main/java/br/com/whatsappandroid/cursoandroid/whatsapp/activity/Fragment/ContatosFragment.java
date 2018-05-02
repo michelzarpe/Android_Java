@@ -53,11 +53,6 @@ public class ContatosFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_contatos, container, false);
         listView_Contatos = (ListView) view.findViewById(R.id.listView_Contatos);
-
-        //getActivity, ele pega a activity que vai ser utilizada para passar ao adapter
-        //arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_expandable_list_item_1,contatos);
-         //arrayAdapter = new ArrayAdapter(getActivity(), R.layout.lista_contato, contatos);
-
         arrayAdapter = new AdapterPersonalidado(contatos,getActivity());
         listView_Contatos.setAdapter(arrayAdapter);
 

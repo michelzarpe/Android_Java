@@ -46,6 +46,7 @@ public class AdapterPersonalidado extends BaseAdapter {
             TextView nome = (TextView) view.findViewById(R.id.tv_nome);
             TextView email = (TextView) view.findViewById(R.id.tv_email);
             nome.setText(contatos.get(position).getNome());
+            email.setText(contatos.get(position).getEmail());
         }
         return view;
     }
