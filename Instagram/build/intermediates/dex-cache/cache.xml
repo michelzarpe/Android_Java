@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\SAA PC\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_9a53a4991186e26c2b4219ff6e5483a74399225d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="5c9fd5ba2cf78fb8c5563c4cc235bb81a649cc26">
+        <dex dex="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d4a7e98921672cdfbfde4f7047ecd8832cc0ffd9\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\exploded-aar\com.android.support\design\22.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="1821601ddbec5ff125653097812823388700af74">
+        <dex dex="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-22.2.1_e09fd7dfcb84cfb148a371110a542860005655ac\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.0.0_6968e0ad1e2ad7286985e9b1177ee3bcf0f268e5\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\SAA PC\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.0.0_770ce014c47c0fd2ad12608bdb8ef212de20fac2\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\SAA PC\.gradle\caches\modules-2\files-2.1\com.parse\parse-android\1.13.0\58a7d54b6a4f28be11f0cecec93097eddf473e6f\parse-android-1.13.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="58a7d54b6a4f28be11f0cecec93097eddf473e6f">
+        <dex dex="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\transforms\dex\debug\folders\1000\10\parse-android-1.13.0_4fff94032f8eec6cfd8f1a9c094e1d53162f1186\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="b681c623220edfd8131d9b78c31a8cb0178ce2c3">
+        <dex dex="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c85aa7f45db2f0a50b2d81a5ace080d756d36f1b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.0.0_fd6ce419d76f65dcf10a6091a6e4b7f4d497c775\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\SAA PC\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_98d6946d02864899c56c81e29eb2bd7eeb9f1d3a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="C:\Users\SAA PC\Desktop\Instagram\ParseStarterProject\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-22.2.1_52cb22b5fa0c36ab9e542c549ebaaf7f7146bd90\classes.dex" />
+    </item>
+
+</items>
