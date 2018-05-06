@@ -23,7 +23,11 @@
         <activity android:name=".activity.atual.MainActivity" />
         <activity android:name=".activity.antiga.ValidadorActivity" />
         <activity android:name=".activity.atual.CadastroUsuarioActivity" />
-        <activity android:name=".activity.antiga.LoginActivity"></activity>
+        <activity android:name=".activity.antiga.LoginActivity" />
+        <activity
+            android:name=".activity.atual.ConversaActivity"
+            android:parentActivityName=".activity.atual.MainActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,11 +1,13 @@
 package br.com.whatsappandroid.cursoandroid.whatsapp.activity.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 
 import br.com.whatsappandroid.cursoandroid.whatsapp.Adapter.AdapterPersonalidado;
 import br.com.whatsappandroid.cursoandroid.whatsapp.R;
+import br.com.whatsappandroid.cursoandroid.whatsapp.activity.atual.ConversaActivity;
 import br.com.whatsappandroid.cursoandroid.whatsapp.config.ConfiguracaoFirebase;
 import br.com.whatsappandroid.cursoandroid.whatsapp.helper.PreferencesUsuario;
 import br.com.whatsappandroid.cursoandroid.whatsapp.model.Contato;
@@ -59,6 +62,19 @@ public class ContatosFragment extends Fragment {
         /*recuperar os contatos direto do fireBase*/
         recuperarContatosDoUsuarioCorrente();
 
+        /*adicionando um evento de click nos itens*/
+        listView_Contatos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /*abrir o activity de conversa*/
+
+                Intent intent = new Intent(getActivity(), ConversaActivity.class);
+                intent.putExtra("nameUser",contatos.get(position).getNome());
+                intent.putExtra("emailUser",contatos.get(position).getEmail());
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 
@@ -83,5 +99,7 @@ public class ContatosFragment extends Fragment {
 
             }
         };
+
+
     }
 }
