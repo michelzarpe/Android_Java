@@ -69,7 +69,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                     salvarUsuariosFireBase();
 
                     PreferencesUsuario preferencesUsuario = new PreferencesUsuario(CadastroUsuarioActivity.this);
-                    preferencesUsuario.salvarDados(usuario.getBase64ID());
+                    preferencesUsuario.salvarDados(usuario.getBase64ID(),usuario.getNome());
 
                     abrirLoginUsuario();
 

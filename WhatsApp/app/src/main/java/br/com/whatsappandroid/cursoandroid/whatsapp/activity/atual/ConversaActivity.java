@@ -8,6 +8,7 @@ import br.com.whatsappandroid.cursoandroid.whatsapp.R;
 import br.com.whatsappandroid.cursoandroid.whatsapp.config.ConfiguracaoFirebase;
 import br.com.whatsappandroid.cursoandroid.whatsapp.helper.Base64Custom;
 import br.com.whatsappandroid.cursoandroid.whatsapp.helper.PreferencesUsuario;
+import br.com.whatsappandroid.cursoandroid.whatsapp.model.Conversa;
 import br.com.whatsappandroid.cursoandroid.whatsapp.model.Mensagem;
 
 import android.os.Bundle;
@@ -40,6 +41,7 @@ public class ConversaActivity extends AppCompatActivity {
     private String idUsuarioDestinatario;
     private String emailDestinatario;
     private String idUsuarioRemetente;
+    private String nomeUsuarioRemetente;
 
 
     @Override
@@ -52,11 +54,9 @@ public class ConversaActivity extends AppCompatActivity {
         configurandoToolbar();
         exibindoMensagensNaInterface();
         enviarMensagem();
-
     }
 
     private void exibindoMensagensNaInterface() {
-
         mensagens = new ArrayList<Mensagem>();
         adapter = new MensagensAdapter(ConversaActivity.this, mensagens);
         list_view_conversas.setAdapter(adapter);
@@ -72,6 +72,7 @@ public class ConversaActivity extends AppCompatActivity {
                 }
                 adapter.notifyDataSetChanged();
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -90,6 +91,7 @@ public class ConversaActivity extends AppCompatActivity {
         /*dados usuario logado(Remetente)*/
         PreferencesUsuario preferencesUsuario = new PreferencesUsuario(ConversaActivity.this);
         idUsuarioRemetente = preferencesUsuario.getIdentificador();
+        nomeUsuarioRemetente = preferencesUsuario.getNome();
     }
 
     private void recuperandoDadosDoUsuarioDestinatario() {
@@ -108,13 +110,42 @@ public class ConversaActivity extends AppCompatActivity {
                 if (!textoMensagem.isEmpty()) {
                     Mensagem mensagem = new Mensagem(idUsuarioRemetente, textoMensagem);
                     idUsuarioDestinatario = Base64Custom.codificandoBase64(emailDestinatario);
-                    salvarMensagem(idUsuarioRemetente, idUsuarioDestinatario, mensagem);
-                    salvarMensagem(idUsuarioDestinatario, idUsuarioRemetente, mensagem);
+                    /*salvando mensagem ao remetente e tambem ao destinatario*/
+                    boolean retornoMensagemRemetente = salvarMensagem(idUsuarioRemetente, idUsuarioDestinatario, mensagem);
+                    if (!retornoMensagemRemetente) {
+                        Toast.makeText(ConversaActivity.this, "Não foi possível enviar mensagem, tente novamente", Toast.LENGTH_LONG).show();
+                    } else {
+                        Boolean retornoMensagemDestinatario = salvarMensagem(idUsuarioDestinatario, idUsuarioRemetente, mensagem);
+                        if (!retornoMensagemDestinatario) {
+                            Toast.makeText(ConversaActivity.this, "Destinatario não recebeu a mensagem, tente novamente", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    /*salvando conversa ao remetente e tambem ao destinatario*/
+                    boolean retornoConversaRemetente = salvarConversa(idUsuarioRemetente, idUsuarioDestinatario, new Conversa(idUsuarioDestinatario, nomeDestinatario, textoMensagem));
+                    if (!retornoConversaRemetente) {
+                        Toast.makeText(ConversaActivity.this, "Não foi possível salvar conversa, tente novamente", Toast.LENGTH_LONG).show();
+                    } else {
+                        boolean retornoConversaDestinatario = salvarConversa(idUsuarioDestinatario, idUsuarioRemetente, new Conversa(idUsuarioRemetente,nomeUsuarioRemetente, textoMensagem));
+                        if (!retornoConversaDestinatario) {
+                            Toast.makeText(ConversaActivity.this, "Não foi possível salvar conversa para o Destinatario, tente novamente", Toast.LENGTH_LONG).show();
+                        }
+                    }
                     edit_text_enviar.setText("");
                 }
 
             }
         });
+    }
+
+    private boolean salvarConversa(String idUsuarioRemetente, String idUsuarioDestinatario, Conversa conversa) {
+        try {
+            firebase = ConfiguracaoFirebase.getFirebase();
+            firebase.child("conversas").child(idUsuarioRemetente).child(idUsuarioDestinatario).setValue(conversa);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     private boolean salvarMensagem(String idUsuarioRemetente, String idUsuarioDestinatario, Mensagem mensagem) {

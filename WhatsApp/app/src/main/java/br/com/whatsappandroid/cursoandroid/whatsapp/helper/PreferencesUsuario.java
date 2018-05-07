@@ -11,6 +11,7 @@ public class PreferencesUsuario {
     private SharedPreferences.Editor editor;/*editor é uma interface para editar*/
     private static final String ARQUIVO_NOME = "WHATSAPPMZ.PREFERENCIA";
     public static final String CHAVE_IDENTIFICADOR = "identificadorUsuarioLogado";
+    public static final String CHAVE_NOME = "nomeUsuarioLogado";
 
 
     public PreferencesUsuario(Context contexto) {
@@ -19,14 +20,20 @@ public class PreferencesUsuario {
         this.editor = preferences.edit();
     }
 
-    public void salvarDados(String identificadorUsuarioLogado) {
+    public void salvarDados(String identificadorUsuarioLogado, String nomeUsuarioLogado) {
         editor.putString(CHAVE_IDENTIFICADOR, identificadorUsuarioLogado);
+        editor.putString(CHAVE_NOME, nomeUsuarioLogado);
         editor.commit();
     }
 
     public String getIdentificador() {
         return preferences.getString(CHAVE_IDENTIFICADOR, null); /*recuperando identificador*/
     }
+
+    public String getNome() {
+        return preferences.getString(CHAVE_NOME, null); /*recuperando nome do usuario*/
+    }
+
 
     public Context getContexto() {
         return contexto;
